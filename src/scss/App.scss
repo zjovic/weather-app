@@ -158,3 +158,11 @@
     grid-area: search;
   }
 }
+
+@media only screen and (max-width: 900px) {
+  .container {
+    .label {
+      display: none;
+    }
+  }
+}
