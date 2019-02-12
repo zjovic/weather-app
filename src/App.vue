@@ -35,7 +35,10 @@
       </div>
     </div>
     <div class="main">
-      <div class="city">{{city}}, {{country}}</div>
+      <div class="city">
+        {{city}}, {{country}}
+        <span>Change location</span>
+      </div>
       <div class="icon">
         <component v-bind:is="icon"></component>
       </div>
