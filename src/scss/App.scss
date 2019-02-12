@@ -1,0 +1,146 @@
+.container {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(4, 1fr);
+  grid-template-columns: repeat(2, 50%);
+  grid-template-areas:
+    "wind main"
+    "pressure main"
+    "humidity main"
+    "sun main";
+
+  .search {
+    display: none;
+    -webkit-box-shadow: 0px 10px 36px -17px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 10px 36px -17px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 10px 36px -17px rgba(0, 0, 0, 0.75);
+    input[type="text"] {
+      display: flex;
+      width: 100%;
+      border: 0;
+      padding: 0 1em;
+      font-size: 1.4em;
+    }
+  }
+
+  .label {
+    text-transform: uppercase;
+    font-size: 0.8em;
+    font-weight: 700;
+    color: $text-light;
+  }
+
+  .result {
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: 1em;
+    color: $text-important;
+  }
+
+  .wind {
+    grid-area: wind;
+    border-bottom: $border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+  }
+
+  .pressure {
+    grid-area: pressure;
+    border-bottom: $border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+  }
+
+  .humidity {
+    grid-area: humidity;
+    border-bottom: $border;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
+  }
+
+  .sun {
+    grid-area: sun;
+    display: flex;
+    @include flex-space;
+
+    .result {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sunrise {
+      border-right: $border;
+      width: 50%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2em;
+    }
+
+    .sunset {
+      width: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2em;
+    }
+  }
+
+  .main {
+    grid-area: main;
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr 2fr;
+    border-left: $border;
+    padding: 2em;
+
+    .city {
+      align-self: center;
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    .icon {
+      justify-self: center;
+      font-size: 3em;
+      align-self: center;
+    }
+
+    .temp {
+      justify-self: center;
+      font-size: 2em;
+      font-weight: 700;
+    }
+
+    .description {
+      font-size: 2em;
+      font-weight: 700;
+      text-transform: uppercase;
+      justify-self: center;
+      align-self: center;
+    }
+  }
+}
+
+.search-open {
+  grid-template-rows: 10vh repeat(4, 1fr);
+  grid-template-columns: repeat(2, 50%);
+  grid-template-areas:
+    "search search"
+    "wind main"
+    "pressure main"
+    "humidity main"
+    "sun main";
+
+  .search {
+    grid-area: search;
+    display: flex;
+  }
+}
