@@ -10,10 +10,12 @@
     "sun main";
 
   .search {
-    display: none;
+    display: flex;
     -webkit-box-shadow: 0px 10px 36px -17px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px 10px 36px -17px rgba(0, 0, 0, 0.75);
     box-shadow: 0px 10px 36px -17px rgba(0, 0, 0, 0.75);
+    height: 0;
+
     input[type="text"] {
       display: flex;
       width: 100%;
@@ -105,6 +107,18 @@
       align-self: center;
       font-size: 2em;
       font-weight: 700;
+
+      .location-change {
+        text-transform: uppercase;
+        font-size: 0.3em;
+        font-weight: 700;
+        cursor: pointer;
+        margin-left: 1em;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
     }
 
     .icon {
@@ -129,7 +143,7 @@
   }
 }
 
-.search-open {
+.containerOpen {
   grid-template-rows: 10vh repeat(4, 1fr);
   grid-template-columns: repeat(2, 50%);
   grid-template-areas:
@@ -139,8 +153,8 @@
     "humidity main"
     "sun main";
 
-  .search {
+  .searchOpen {
+    height: 100%;
     grid-area: search;
-    display: flex;
   }
 }

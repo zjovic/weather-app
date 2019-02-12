@@ -1,6 +1,6 @@
 <template>
-  <div class="container">
-    <div class="search">
+  <div class="container" v-bind:class="{containerOpen: searchActive}">
+    <div class="search" v-bind:class="{searchOpen: searchActive}">
       <input type="text" placeholder="Search">
     </div>
     <div class="wind">
@@ -37,7 +37,10 @@
     <div class="main">
       <div class="city">
         {{city}}, {{country}}
-        <span>Change location</span>
+        <span
+          class="location-change"
+          v-on:click="searchActive = !searchActive"
+        >Change location</span>
       </div>
       <div class="icon">
         <component v-bind:is="icon"></component>
@@ -79,7 +82,8 @@ export default {
       sunrise: "",
       sunset: "",
       description: "",
-      icon: ""
+      icon: "",
+      searchActive: false
     };
   },
 
@@ -119,6 +123,11 @@ export default {
         .catch(error => {
           console.log(error);
         });
+    },
+
+    toggleSearch: function() {
+      let search = document.querySelector("container");
+      search.classList.toggle("search-open");
     }
   }
 };
